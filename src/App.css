@@ -1,42 +1,79 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
+.dashboard {
+    background-color: black;
+    color: white;
+    display: grid; 
+    grid-template-columns: 0.3fr 1fr 0.3fr; 
+    grid-template-rows: 0.3fr 1.7fr; 
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
+    grid-template-areas:
+      "date-time dock title"
+      "desktop desktop desktop";
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+    height: 100vh;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .date-time {
+    grid-area: date-time;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    /* align-items: center; Center horizontally */
   }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  .date{
+    margin-left: 2vw;
+
+    font-size: 10px;
   }
-}
 
-.card {
-  padding: 2em;
-}
+  .time{
+    margin-left: 2vw;
 
-.read-the-docs {
-  color: #888;
+    font-size: 20px;
+  }
+
+.header {
+    font-size: 30px;
+    margin-bottom: 0px;
+  }
+.version {
+    font-size: 20px;
+    margin-top: 0px;
+  }
+
+  body {
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default padding */
+    
 }
+  
+  .dock { 
+    grid-area: dock;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+     align-items:end; /*Center horizontally */
+     padding-right: 1vw; 
+
+}
+  
+  .title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+     align-items:end; /*Center horizontally */
+     padding-right: 1vw;;
+    grid-area: title;
+ }
+
+  .desktop{
+    grid-area: desktop;
+    background-image: url('./assets/bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* border: 25px solid black; */
+    margin: 25px;
+    color: white;
+    border-radius: 25px;
+  }
+  
