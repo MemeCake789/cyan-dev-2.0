@@ -42,7 +42,11 @@ function Window({ children, title }) {
         top: position.y,
         left: position.x,
 
-        backgroundColor : 'black'
+        borderTopLeftRadius: '10px',
+
+        width: '500px',
+        height: '400px',
+ 
 
       }}
     >
@@ -50,10 +54,13 @@ function Window({ children, title }) {
         ref={headerRef}
         onMouseDown={handleMouseDown}
         className='titleBar'
+        style={{
+          width: '504px',
+        }}
       >
         {title}
       </div>
-      <div style={{ padding: '10px' }}>{children}</div>
+      <div style={{  }}>{children}</div>
     </div>
   );
 }

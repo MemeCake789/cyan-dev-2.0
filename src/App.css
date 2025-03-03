@@ -46,13 +46,15 @@
     padding: 0; /* Remove default padding */
     
 }
+
+
   
   .dock { 
     grid-area: dock;
     display: flex;
-    flex-direction: column;
+    flex-direction:row;
     justify-content: center; /* Center vertically */
-     align-items:end; /*Center horizontally */
+     align-items:center; /*Center horizontally */
      padding-right: 1vw; 
 
 }
@@ -71,9 +73,15 @@
     background-image: url('./assets/bg.png');
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
     /* border: 25px solid black; */
     margin: 25px;
     color: white;
     border-radius: 25px;
   }
   
+  .stats{
+    color: #FF4400;
+    margin-left: 1vw;
+  }
