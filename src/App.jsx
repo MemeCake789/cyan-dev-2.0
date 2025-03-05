@@ -66,9 +66,15 @@ GAMES STATUS ... OK    <br></br>
 
      
     
-
-      <Window title="My Window">
-<iframe src="https://inter-dev.vercel.app/gm" title="browser" width="500px" height="400px" />
+      <Window title="My Window" >
+      <div style={{ width: '100%', height: '100%' ,overflow: 'hidden'}}>
+        <iframe
+          src="https://cyan-zeta.vercel.app/"
+          title="browser"
+          style={{ width: '100%', height: '100%', border: 'none', zoom: '0.75' }}
+        />
+        </div>
+       
 
       </Window>
 

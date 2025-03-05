@@ -1,15 +1,55 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 
+.close{
+    background-color: #000000;
+    color: #ffffff;
+    font-family: "JetBrains Mono", serif;
+    font-weight: 100;
+    border: none;
+    cursor: pointer;
+    
+}
 
+.close:hover{
+    background-color: #da5b5b;
+    color: #000;
+}
+
+.maximize{
+    background-color: #000000;
+    color: #ffffff;
+    font-family: "JetBrains Mono", serif;
+    border: none;
+    cursor: pointer;
+}
+
+.maximize:hover{
+    background-color: #dddddd;
+    color: #000;
+}
+
+.minimize{
+    background-color: #000000;
+    color: #ffffff;
+    font-family: "JetBrains Mono", serif;
+    border: none;
+    cursor: pointer;
+}
+
+.minimize:hover{
+    background-color: #dddddd;
+    color: #000;
+}
 
 .titleBar{
-    font-family: "JetBrains Mono", serif;
-    display: flex;
+    display: flex;  
     align-items: center;
-    justify-content: center;
+    justify-content: center; 
+    font-family: "JetBrains Mono", serif;
+    
     cursor: pointer;
     background-color: #000000;
-    outline: none;
+    outline: none; 
     color: white;
     width: 100%;
     border-top-left-radius: 10px;
@@ -17,6 +57,12 @@
     font-size: small;
     padding: 3px;
 }
+
+.navigation {
+    margin-left:auto;
+   
+} 
+
 
 /* .window {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
