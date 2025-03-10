@@ -4,11 +4,15 @@ import './Window.css';
 function Window({ children, title }) {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [size, setSize] = useState({ w: 600, h: 400 });
+  const [state, setState] = useState('maximized');
 
   
   const [isDragging, setIsDragging] = useState(false);
   const [maximize, setMaximize] = useState(false);
+  const [zIndex, setZIndex] = useState(1); 
+
   const [minimize, setMinimize] = useState(false);
+
   const [close, setClose] = useState(false);
 
   const windowRef = useRef(null);
@@ -25,8 +29,9 @@ function Window({ children, title }) {
     };
 
 
-
     const handleMouseUp = () => {
+      
+
       setIsDragging(false);
     };
 
@@ -40,6 +45,9 @@ function Window({ children, title }) {
   }, [isDragging]);
 
   const handleMouseDown = () => {
+    setZIndex(zIndex + 10);
+
+
     setIsDragging(true);
   };
 
@@ -53,11 +61,20 @@ function Window({ children, title }) {
     } else {
       // Maximize the window
       setPosition({ x: 0, y: 0 });
+
       setSize({ w: window.innerWidth -10, h: window.innerHeight -10});
       setMaximize(true);
       windowRef.current.classList.add('maximized');
     }
   }, [maximize]);
+
+  const handleMinimize = () => {
+    setMinimize(!minimize)
+    setState(minimize ? 'maximized' : 'minimized')
+    setSize(minimize ? { w: 600, h: 400 } : { w: 200, h: 400 });
+  }
+
+
 
   
 
@@ -79,7 +96,7 @@ function Window({ children, title }) {
 
 
         width: size.w +5 ,
-        height: size.h,
+        height: size.h, zIndex: zIndex,
  
 
 
@@ -92,6 +109,7 @@ function Window({ children, title }) {
         ref={headerRef}
         onMouseDown={handleMouseDown}
         className='titleBar'
+        id={state}
         style={{
           width: size.w ,
         }}
@@ -99,18 +117,22 @@ function Window({ children, title }) {
         {title}
         <div className='navigation'>        
           <button className='close'>x</button>
-          <button className='maximize' onClick={handleResize}>□</button>
-          <button className='minimize'>‒</button>
+          <button className='maximize' onClick={handleResize}>□</button> 
+          <button className='minimize' onClick={handleMinimize}>‒</button>
         </div>
 
       </div>
-      <div className="container" style={{
-        width: '100%', 
-        height: '100%',
-        overflow: 'hidden',
-       }}
-       >{children}</div>
-
+      <div
+        className="container"
+        style={{
+          width: '100%',
+          height: '100%',
+          overflow: 'hidden',
+          visibility: minimize ? 'hidden' : 'visible', // Use CSS visibility
+        }}
+      >
+        {children}
+      </div>
     </div>
   );
 }

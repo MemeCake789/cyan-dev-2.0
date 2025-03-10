@@ -42,6 +42,31 @@ function App() {
   </div>
 
   <div className='desktop'>
+
+  <Window title="My Window" >
+      <div style={{ width: '100%', height: '100%' ,overflow: 'hidden'}}>
+        <iframe
+          src="https://cyan-zeta.vercel.app/"
+          title="browser"
+          style={{ width: '100%', height: '100%', border: 'none', zoom: '0.75' }}
+        />
+        </div>
+       
+
+      </Window>
+
+      <Window title="My Window" >
+      <div style={{ width: '100%', height: '100%' ,overflow: 'hidden'}}>
+        <iframe
+          src="https://cyan-zeta.vercel.app/"
+          title="browser"
+          style={{ width: '100%', height: '100%', border: 'none', zoom: '0.75' }}
+        />
+        </div>
+       
+
+      </Window>
+
     <div className='stats'>
       <p className='data'>
 LINK : http://cyan-ide.vercel.app     <br></br>
@@ -66,17 +91,6 @@ GAMES STATUS ... OK    <br></br>
 
      
     
-      <Window title="My Window" >
-      <div style={{ width: '100%', height: '100%' ,overflow: 'hidden'}}>
-        <iframe
-          src="https://cyan-zeta.vercel.app/"
-          title="browser"
-          style={{ width: '100%', height: '100%', border: 'none', zoom: '0.75' }}
-        />
-        </div>
-       
-
-      </Window>
 
 
 

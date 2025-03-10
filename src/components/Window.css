@@ -6,6 +6,7 @@
     font-family: "JetBrains Mono", serif;
     font-weight: 100;
     border: none;
+    border-radius: 7px;
     cursor: pointer;
     
 }
@@ -20,6 +21,8 @@
     color: #ffffff;
     font-family: "JetBrains Mono", serif;
     border: none;
+    border-radius: 7px;
+
     cursor: pointer;
 }
 
@@ -33,6 +36,8 @@
     color: #ffffff;
     font-family: "JetBrains Mono", serif;
     border: none;
+    border-radius: 7px;
+
     cursor: pointer;
 }
 
@@ -52,11 +57,21 @@
     outline: none; 
     color: white;
     width: 100%;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+
     font-size: small;
     padding: 3px;
 }
+
+#maximized{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#minimized{
+    border-radius: 10px;
+}
+
+
 
 .navigation {
     margin-left:auto;
