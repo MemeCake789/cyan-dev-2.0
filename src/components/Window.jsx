@@ -13,7 +13,7 @@ function Window({ children, title }) {
 
   const [minimize, setMinimize] = useState(false);
 
-  const [close, setClose] = useState(false);
+  const [hidden, setHidden] = useState(false);
 
   const windowRef = useRef(null);
   const headerRef = useRef(null);
@@ -74,12 +74,17 @@ function Window({ children, title }) {
     setSize(minimize ? { w: 600, h: 400 } : { w: 200, h: 400 });
   }
 
+  const handleClose = () => {
+    setHidden(true);
+    setState('hidden')
+  }
+
 
 
   
 
   return (
-    <div
+    <div hidden={hidden}
     
       ref={windowRef}
       className='window'
@@ -116,7 +121,7 @@ function Window({ children, title }) {
       >
         {title}
         <div className='navigation'>        
-          <button className='close'>x</button>
+          <button className='close' onClick={handleClose}>x</button>
           <button className='maximize' onClick={handleResize}>□</button> 
           <button className='minimize' onClick={handleMinimize}>‒</button>
         </div>

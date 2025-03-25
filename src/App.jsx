@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import './App.css';
+import Games from './Games';
 import Window from './components/Window';
 
 
@@ -43,7 +44,16 @@ function App() {
 
   <div className='desktop'>
 
-  <Window title="My Window" >
+<Window>
+<div style={{ width: '100%', height: '100%' ,overflow: 'hidden'}}>
+
+<Games></Games>
+        </div>
+</Window>
+
+  
+
+      {/* <Window title="My Window" >
       <div style={{ width: '100%', height: '100%' ,overflow: 'hidden'}}>
         <iframe
           src="https://cyan-zeta.vercel.app/"
@@ -53,19 +63,7 @@ function App() {
         </div>
        
 
-      </Window>
-
-      <Window title="My Window" >
-      <div style={{ width: '100%', height: '100%' ,overflow: 'hidden'}}>
-        <iframe
-          src="https://cyan-zeta.vercel.app/"
-          title="browser"
-          style={{ width: '100%', height: '100%', border: 'none', zoom: '0.75' }}
-        />
-        </div>
-       
-
-      </Window>
+      </Window> */}
 
     <div className='stats'>
       <p className='data'>

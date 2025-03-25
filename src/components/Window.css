@@ -41,6 +41,30 @@
     cursor: pointer;
 }
 
+
+.window {
+    flex: 1; /* Allow the window to take up the available space */
+    width: 100%;
+    height: 100%;
+    
+  }
+  
+  /* Ensure the games-layout also takes the full height of its container */
+  .games-layout {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .games-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow-y: auto;
+    height: 100%;
+  
+    
+  }
 .minimize:hover{
     background-color: #dddddd;
     color: #000;
@@ -60,6 +84,10 @@
 
     font-size: small;
     padding: 3px;
+}
+
+.window-content{
+    overflow-y: auto;
 }
 
 #maximized{

@@ -12,6 +12,11 @@
     height: 100vh;
   }
   
+
+  .data{
+    color: #ff3700;
+
+  }
   .date-time {
     grid-area: date-time;
     display: flex;
