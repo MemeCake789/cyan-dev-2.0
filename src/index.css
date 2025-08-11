@@ -1,14 +1,16 @@
-:root{
+@import url('https://fonts.googleapis.com/css2?family=Coral+Pixels&family=Micro+5&display=swap');
+:root {
+  font-family: "Micro 5", sans-serif;
+    line-height: 1.5;
+  font-weight: 400;
 
-    font-family: "JetBrains Mono", serif;
-    
+  color-scheme: light dark;
+  color: #ffffff;
+  background-color: #050505;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-
-iframe {
-  
-    border: 5px solid black;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-
-  
-}
+ 

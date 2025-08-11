@@ -1,92 +1,142 @@
-.dashboard {
-    background-color: black;
-    color: white;
-    display: grid; 
-    grid-template-columns: 0.3fr 1fr 0.3fr; 
-    grid-template-rows: 0.3fr 1.7fr; 
+/* --- General Styles --- */
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
 
-    grid-template-areas:
-      "date-time dock title"
-      "desktop desktop desktop";
+/* --- Main Container --- */
+.app-container {
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
 
-    height: 100vh;
-  }
-  
+/* --- Top Bar --- */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem ;
+  background-color: rgba(0, 0, 0, 0.8);
+  /* border-bottom: 1px solid rgb(75 85 99); */
+  flex-shrink: 0;
+  z-index: 10;
+}
 
-  .data{
-    color: #ff3700;
+.red-circle {
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: rgb(239 68 68);
+  border-radius: 9999px;
+}
 
-  }
-  .date-time {
-    grid-area: date-time;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center vertically */
-    /* align-items: center; Center horizontally */
-  }
+.date-time,
+.os-info {
+  font-size: .9rem;
+  color: rgb(209 213 219);
+}
 
-  .date{
-    margin-left: 2vw;
-
-    font-size: 10px;
-  }
-
-  .time{
-    margin-left: 2vw;
-
-    font-size: 20px;
-  }
-
-.header {
-    font-size: 30px;
-    margin-bottom: 0px;
-  }
-.version {
-    font-size: 20px;
-    margin-top: 0px;
-  }
-
-  body {
-    margin: 0; /* Remove default margins */
-    padding: 0; /* Remove default padding */
-    
+.os-version {
+  color: rgb(107 114 128);
 }
 
 
-  
-  .dock { 
-    grid-area: dock;
-    display: flex;
-    flex-direction:row;
-    justify-content: center; /* Center vertically */
-     align-items:center; /*Center horizontally */
-     padding-right: 1vw; 
-
+/* --- Background Area --- */
+.background-area {
+  position: relative;
+  flex-grow: 1;
+  padding: 1rem;
+  /* padding-bottom: 2rem; */
 }
-  
-  .title {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center vertically */
-     align-items:end; /*Center horizontally */
-     padding-right: 1vw;;
-    grid-area: title;
- }
 
-  .desktop{
-    grid-area: desktop;
-    background-image: url('./assets/bg.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    /* border: 25px solid black; */
-    margin: 25px;
-    color: white;
-    border-radius: 25px;
-  }
-  
-  .stats{
-    color: #FF4400;
-    margin-left: 1vw;
-  }
+.background-image {
+  margin: 1rem;
+  position: absolute;
+  top: 0rem;
+  right: 1rem;
+  bottom: 0rem;
+  left: 1rem;
+  background-size: cover;
+  background-position: center;
+  border-radius: 1rem;
+  background-image: url('./assets/bg.png');
+}
+
+
+/* --- Dock Area (Bottom Black Area) --- */
+.dock-area {
+  position: relative;
+  flex-shrink: 0;
+  height: 3rem;
+  background-color: black;
+  padding-bottom: 1rem;
+}
+
+/* --- Dock Container --- */
+.dock-container {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 20;
+  height: 4rem;
+}
+
+/* --- Dock Tray --- */
+.dock-tray {
+  position: absolute;
+  bottom: 0;
+  width: 50rem; 
+  height: 2rem;
+  background-color:  rgba(255, 255, 255, 0.25);
+  /* border: 1px solid #C3C3C3; */
+  border-radius: 0.8rem;
+  backdrop-filter: blur(15px);
+}
+
+/* --- Icons Container --- */
+.icons-container {
+  position: absolute;
+  bottom: 0.95rem;
+  display: flex;
+  gap: 1.2rem;
+  z-index: 30; 
+}
+
+/* --- Dock Icon --- */
+.dock-icon {
+  width: 3.75rem;
+  height: 3.75rem;
+  background-color:  rgba(255, 255, 255, 0.5);
+  border: 1px solid #C3C3C3;
+  border-radius: 0.8rem;
+  backdrop-filter: blur(15px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dock-icon:hover {
+  background-image: linear-gradient(to bottom, rgb(156 163 175), rgb(107 114 128));
+}
+
+.dock-container {
+  height: 6rem;
+  width: 6rem;
+}
+
+/* --- Boot Screen Text --- */
+.boot-text {
+  color: green;
+  font-family: monospace;
+}

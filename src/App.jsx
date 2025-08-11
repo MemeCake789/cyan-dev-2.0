@@ -1,100 +1,96 @@
-import { useState, useEffect } from 'react';
-import './App.css';
-import Games from './Games';
-import Window from './components/Window';
+import React, { useState, useEffect } from 'react';
+import './App.css'; 
+import BootScreen from './components/BootScreen';
 
 
-function App() {
+export default function App() {
   const [currentTime, setCurrentTime] = useState(new Date());
-
+  const [showBootScreen, setShowBootScreen] = useState(true);
+ 
+  const handleBootComplete = () => {
+    setShowBootScreen(false); 
+    
+  };
+  // Update time every second
   useEffect(() => {
-    const intervalId = setInterval(() => {
+    const timerId = setInterval(() => {
       setCurrentTime(new Date());
-    }, 1000);
+    }, 1000); 
 
-    return () => clearInterval(intervalId);
+    return () => clearInterval(timerId);
   }, []);
 
-  const formattedDate = currentTime.toLocaleDateString();
-  const formattedTime = currentTime.toLocaleTimeString();
+  const formattedDate = currentTime.toLocaleDateString('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+  });
+  const formattedTime = currentTime.toLocaleTimeString('en-US', {
+    hour: 'numeric',
+    minute: '2-digit',
+    hour12: true,
+  });
 
   return (
     <>
-<div className="dashboard">
-
-  <div className="date-time">
-          <time className='date' dateTime={currentTime.toLocaleDateString()}>
-            {formattedDate}
-          </time>
-          <time className='time' dateTime={currentTime.toLocaleTimeString()}>
-            {formattedTime}
-          </time>
-  </div>
-
-  <div className="dock"> 
-    <button>GAMES</button>
-    <button>CHAT</button>
-    <button>AI</button>
-  </div>
-
-  <div className="title">
-    <h2 className='header'>cyλn.os</h2>
-    <h2 className='version'>v2.01</h2>
-  </div>
-
-  <div className='desktop'>
-
-<Window>
-<div style={{ width: '100%', height: '100%' ,overflow: 'hidden'}}>
-
-<Games></Games>
-        </div>
-</Window>
-
-  
-
-      {/* <Window title="My Window" >
-      <div style={{ width: '100%', height: '100%' ,overflow: 'hidden'}}>
-        <iframe
-          src="https://cyan-zeta.vercel.app/"
-          title="browser"
-          style={{ width: '100%', height: '100%', border: 'none', zoom: '0.75' }}
-        />
-        </div>
+     {showBootScreen && <BootScreen onBootComplete={handleBootComplete} />}
+     {!showBootScreen && (
        
+       <div className="app-container">
 
-      </Window> */}
+         {/* Top Bar */}
+         <div className="top-bar">
+           {/* Left side: Red circle */}
+           <div className="red-circle"></div>
+           {/* Center: Date and Time */}
+           <div className="date-time">
+             {formattedDate} | {formattedTime}
+           </div>
+           {/* Right side: OS Name and Version */}
+           <div className="os-info">
+             cyan.os <span className="os-version">v2.01</span>
+           </div>
+         </div>
 
-    <div className='stats'>
-      <p className='data'>
-LINK : http://cyan-ide.vercel.app     <br></br>
-HOST : http://localhost:3000    <br></br>
-PORT : 3000    <br></br>
-    <br></br>
-PROXY STATUS ... OK    <br></br>
-  ├ SERVICE : UV    <br></br>
-  └ BROWSER : GOOGLE    <br></br>
-    <br></br>
-GAMES STATUS ... OK    <br></br>
-  ├ ROOT : https://github.com/Cyanide-App/cyan-assets    <br></br>
-  ├ AMOUNT : 125    <br></br>
-  ├ JSON :  {"{"} ... {"}"}   <br></br>
-  └    <br></br>
+         {/* Area containing Background Image */}
+         <div className="background-area">
+           {/* Background Image Container */}
+           <div
+             className="background-image"
 
-      </p>
-    </div>
-  </div>
+           >
+             {/* Content inside the main area can go here */}
+           </div>
+         </div>
 
-</div>
+         {/* Bottom Black Area for Dock */}
+         <div className="dock-area">
+           {/* --- Dock Container --- */}
+           <div className="dock-container">
 
-     
-    
+             {/* Dock Tray */}
+             <div className="dock-tray">
+               {/* Tray element */}
+             </div>
 
-
-
-
+             {/* Icons Container */}
+             <div className="icons-container">
+               {/* Placeholder Icons */}
+               {[...Array(4)].map((_, index) => (
+                 <div
+                   key={index}
+                   className="dock-icon"
+                   aria-label={`Dock icon ${index + 1}`} // Accessibility label
+                 >
+                   {/* Optional: Add icon content here later */}
+                 </div>
+               ))}
+             </div>
+           </div>
+           {/* --- End Dock Container --- */}
+         </div> {/* End Bottom Black Area */}
+       </div>
+     )}
     </>
   );
-}
-
-export default App;
+  }
